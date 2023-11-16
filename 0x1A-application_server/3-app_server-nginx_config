@@ -48,8 +48,10 @@ rewrite ^/redirect_me https://www.youtube.com/ permanent;
         }
 
          # Serve /number_odd_or_even/ route on AirBnB_clone_v2
-        location /airbnb-dynamic/number_odd_or_even/(\d+)$ {
-
+        location /airbnb-dynamic/number_odd_or_even/ {
+                proxy_pass http://localhost:5001/number_odd_or_even/;
+                proxy_redirect off;
+        }
 
         location /hbnb_static {
                 alias /data/web_static/current/;
@@ -111,8 +113,4 @@ rewrite ^/redirect_me https://www.youtube.com/ permanent;
 #}
 ~                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
 ~                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
-~                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
-~                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
-~                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
-~                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
-~             
+~                  
